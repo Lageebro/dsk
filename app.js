@@ -292,7 +292,14 @@ if (isFirebaseReady) {
     });
 } else {
     // Timeout gives a natural loading effect before showing dummy data
-    setTimeout(loadDummyReviews, 800);
+    setTimeout(() => {
+        const dummyReviewsData = {
+            'dummy1': { name: 'Saman Perera', text: 'Excellent service! The AC bus was incredibly comfortable and the driver was highly professional. Definitely our top choice for future long trips.', rating: 5, timestamp: Date.now() },
+            'dummy2': { name: 'Nimal Rathnayake', text: 'We rented an excavator for our new construction site. The machinery was in top condition and delivered right on time. Highly recommended!', rating: 5, timestamp: Date.now() - 86400000 },
+            'dummy3': { name: 'Kamal Fernando', text: 'Great travel and tour service. Our family enjoyed the custom tour package very much. The booking process was smooth. Thank you DSK Transport!', rating: 4, timestamp: Date.now() - 172800000 }
+        };
+        displayReviews(dummyReviewsData);
+    }, 800);
 }
 
 // Modal Logic
@@ -366,7 +373,7 @@ const reviewTitle = document.getElementById('review-title');
 if (reviewTitle) {
     reviewTitle.addEventListener('dblclick', () => {
         const password = prompt('Enter Admin Password to delete reviews:');
-        if (password === 'dsk123') { // Admin password
+        if (password === 'Lageebro') { // Admin password
             isAdmin = true;
             alert('Admin mode active! You can now delete reviews.');
             // Re-render
@@ -391,3 +398,36 @@ window.deleteReview = function (key) {
         }
     }
 }
+
+// -------------------------------------------------------------
+// Scroll Reveal Animations
+// -------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+    // Dynamically add staggered reveal classes to fleet grid cards
+    const fleetGridCards = document.querySelectorAll('#fleet-grid > div');
+    fleetGridCards.forEach((card, index) => {
+        card.classList.add('reveal');
+        // Add staggered delays for columns (0, 100, 200) based on index
+        const delay = (index % 3) * 100 + 100; 
+        if(delay > 100) card.classList.add(`delay-${delay}`);
+    });
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Optional: Stop observing once animated
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    revealElements.forEach(el => observer.observe(el));
+});
