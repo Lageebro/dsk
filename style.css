@@ -1,0 +1,64 @@
+/* Base specific styles */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* Offset for sticky header */
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Backgrounds */
+.hero-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('DSK.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.ac-bus-bg {
+    background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Custom Gradients and text shadows */
+.text-shadow-xl {
+    text-shadow: 0 10px 15px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.drop-shadow-2xl {
+    filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.40));
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F3F4F6;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0F172A;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #F59E0B;
+}
