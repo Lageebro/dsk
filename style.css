@@ -30,6 +30,13 @@ html {
     background-attachment: fixed;
 }
 
+@media (max-width: 768px) {
+    .hero-bg {
+        background-attachment: scroll;
+        background-position: top center;
+    }
+}
+
 .ac-bus-bg {
     background-image: url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
     background-size: cover;
@@ -61,4 +68,13 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #F59E0B;
+}
+
+/* Hide scrollbar for review slider but keep functionality */
+.hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
 }
