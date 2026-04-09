@@ -47,6 +47,60 @@
 
 <body class="font-inter text-gray-800 antialiased bg-white selection:bg-accent selection:text-white">
 
+    <!-- Avurudu Welcome Modal -->
+    <div id="avurudu-modal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-brand/80 backdrop-blur-sm transition-opacity duration-700">
+        <div class="bg-white rounded-3xl overflow-hidden max-w-md w-full shadow-[0_0_50px_rgba(245,158,11,0.3)] transform transition-transform duration-700 border border-yellow-500/50">
+            <div class="h-32 bg-gradient-to-br from-yellow-600 via-yellow-500 to-red-600 relative flex items-center justify-center">
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPgo8cmFkaWFsR3JhZGllbnQgaWQ9InIiIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjcwJSI+CjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iMC41Ii8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+CjwvcmFkaWFsR3JhZGllbnQ+CjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcikiLz4KPC9zdmc+')] opacity-60 mix-blend-overlay"></div>
+                <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center absolute -bottom-10 shadow-lg border-[5px] border-white z-10">
+                    <span class="text-4xl animate-pulse">🪔</span>
+                </div>
+            </div>
+            <div class="px-8 pt-16 pb-8 text-center relative">
+                <button onclick="closeAvuruduModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors focus:outline-none">
+                    <i class='bx bx-x text-3xl'></i>
+                </button>
+                <span class="text-accent font-bold tracking-wider uppercase text-xs mb-2 block">Season's Greetings</span>
+                <h2 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-yellow-600 mb-4 inline-block drop-shadow-sm leading-tight">
+                    සුබ අලුත් අවුරුද්දක් වේවා!<br><span class="text-lg mt-1 block">இனிய புத்தாண்டு நல்வாழ்த்துக்கள்!</span>
+                </h2>
+                <p class="text-gray-600 mb-8 text-sm leading-relaxed">
+                    Wishing you and your family a blessed, prosperous, and joyful Sinhala & Tamil New Year from DSK Transport. <br><strong class="text-brand mt-2 block">Enjoy our seasonal offers!</strong>
+                </p>
+                <button onclick="closeAvuruduModal()" class="w-full py-4 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white font-bold rounded-xl shadow-lg hover:shadow-[0_0_20px_rgba(245,158,11,0.5)] transition-all transform hover:-translate-y-1">
+                    Explore Now <i class='bx bx-right-arrow-alt align-middle ml-1'></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating Avurudu Offers widget -->
+    <a href="#contact" class="fixed bottom-6 left-6 z-[90] flex items-center justify-center group animate-fade-in-up delay-500 hidden md:flex cursor-pointer">
+        <div class="absolute inset-0 bg-gradient-to-r from-yellow-400 to-red-500 rounded-full blur opacity-60 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+        <div class="relative bg-white text-brand px-6 py-3 rounded-full font-bold shadow-xl border border-yellow-300 flex items-center gap-3 transform group-hover:scale-105 transition-all">
+            <span class="text-2xl">🎊</span>
+            <span class="tracking-wide">Avurudu Specials</span>
+        </div>
+    </a>
+
+    <script>
+        function closeAvuruduModal() {
+            const modal = document.getElementById('avurudu-modal');
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 700);
+        }
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            if(!sessionStorage.getItem('avurudu-modal-shown')) {
+                sessionStorage.setItem('avurudu-modal-shown', 'true');
+            } else {
+                document.getElementById('avurudu-modal').style.display = 'none';
+            }
+        });
+    </script>
+
     <!-- Header / Navigation -->
     <header
         class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 transition-all duration-300"
@@ -127,12 +181,16 @@
     <!-- Hero Section -->
     <section id="home"
         class="relative hero-bg h-[calc(100vh-80px)] min-h-[600px] flex items-center justify-center overflow-hidden">
+        
+        <!-- Subtle Animated Avurudu glow for season -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-yellow-500/20 rounded-full blur-[100px] mix-blend-overlay pointer-events-none animate-pulse" style="animation-duration: 4s;"></div>
+
         <!-- Floating overlay particles or patterns can be added here -->
 
         <div class="relative z-10 text-center px-4 max-w-5xl mx-auto transform translate-y-8 animate-fade-in-up">
             <span
-                class="inline-block py-1 px-3 rounded-full bg-accent/20 text-accent border border-accent/30 font-semibold text-sm tracking-wider mb-6 font-poppins shadow-[0_0_15px_rgba(245,158,11,0.3)]">
-                PREMIUM LOGISTICS & TRAVEL
+                class="inline-block py-1.5 px-4 rounded-full bg-black/30 text-yellow-500 border border-yellow-500/30 font-semibold text-sm tracking-wider mb-6 font-poppins shadow-[0_0_20px_rgba(245,158,11,0.2)] backdrop-blur-md">
+                <span class="mr-2">🪔</span> PREMIUM LOGISTICS & TRAVEL • AVURUDU OFFERS
             </span>
             <h1
                 class="text-5xl md:text-7xl lg:text-8xl font-poppins font-black text-white uppercase tracking-tight mb-6 leading-tight text-shadow-xl drop-shadow-2xl">

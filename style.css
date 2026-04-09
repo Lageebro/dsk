@@ -124,3 +124,15 @@ html {
     transform: translateY(-8px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
+
+/* Avurudu Decorations */
+@keyframes swing {
+    0% { transform: rotate(8deg); }
+    50% { transform: rotate(-8deg); }
+    100% { transform: rotate(8deg); }
+}
+
+.animate-swing {
+    animation: swing 4s ease-in-out infinite;
+    transform-origin: top center;
+}
